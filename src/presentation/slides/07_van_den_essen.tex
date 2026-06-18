@@ -1,0 +1,9 @@
+\begin{frame}{Critério de invertibilidade}
+Com isso, podemos responder quando existem $F,G\colon\KK^n\to\KK^n$ polinomiais tais que: \[F \circ G = G \circ F = \Id_{\KK^n}\]
+    \begin{teobox}{Critério de van den Essen}
+        Seja $F=(F_1,\ldots,F_n)\colon \kk^n \to \kk^n$ uma aplicação polinomial e considere o ideal \[I=\langle y_1-F_1(X),\ldots,y_n-F_n(X)\rangle \subset \kk[x_1,\ldots,x_n,y_1,\ldots,y_n].\]
+Seja $G$ a base de Gröbner reduzida de $I$ com respeito à ordem monomial \textit{lexicográfica}. Então $F$ é invertível se, e somente se, existem polinômios 
+\(G_1(Y),\ldots,G_n(Y) \in \kk[y_1,\ldots,y_n]\) tais que \[G=\{x_1-G_1(Y),\ldots,x_n-G_n(Y)\}\]
+Dessa forma, se $F$ admite inversa, então ela será dada por $F^{-1}(Y)=(G_1(Y),\ldots,G_n(Y)).$
+    \end{teobox}
+\end{frame}

@@ -1,0 +1,85 @@
+\begin{frame}{Arquitetura da implementação}
+    Para calcular explicitamente as inversas polinomiais dos casos de Hubbers apresentados, implementou-se o seguinte sistema computacional:
+
+    \vspace{0.5cm}
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+       
+        basebox/.style={
+            rectangle, 
+            rounded corners=1.5mm, 
+            minimum width=3.2cm, 
+            minimum height=1.8cm, 
+            align=center, 
+            thick, 
+            drop shadow={opacity=0.15, shadow xshift=1pt, shadow yshift=-1pt}
+        },
+        
+        bluebox/.style={basebox, draw=Navy, fill=LightBlue},
+        greenbox/.style={basebox, draw=DarkGreen, fill=LightGreen},
+        
+        bluearrow/.style={-{Stealth[scale=1.2]}, thick, draw=Navy},
+        greenarrow/.style={-{Stealth[scale=1.2]}, thick, draw=DarkGreen},
+        dashedarrow/.style={dashed, thick, draw=Amber, -{Stealth[scale=1.2]}}
+    ]
+
+        
+        \node[bluebox] (ocaml) {
+            \textbf{\large OCaml}\\ 
+            \vspace{0.1cm}
+            \scriptsize Implementação de um CAS
+        };
+
+        
+        \node[bluebox, right=0.6cm of ocaml] (buch) {
+            \textbf{\large Algoritmo de Buchberger}\\ 
+            \vspace{0.1cm}
+            \scriptsize S-polinômios, ordem \textit{lex} e fluxo do algoritmo.
+        };
+
+        
+        \node[greenbox, right=0.6cm of buch] (grob) {
+            \textbf{\large Base de}\\ 
+            \textbf{\large Gröbner $G$}\\ 
+            \vspace{0.1cm}
+            \scriptsize forma reduzida
+        };
+
+        
+        \node[greenbox, right=0.6cm of grob] (inv) {
+            \textbf{\large Inversa $G$}\\ 
+            \scriptsize extração de\\ 
+            \scriptsize $x_i - G_i(y)$
+        };
+
+        
+        \node[greenbox, right=0.6cm of inv] (lean) {
+            \textbf{\large Lean 4}\\ 
+            \vspace{0.1cm}
+            \scriptsize \textbf{verificação formal}
+        };
+
+        
+        \draw[bluearrow] (ocaml) -- (buch);
+        \draw[bluearrow] (buch) -- (grob);
+        \draw[greenarrow] (grob) -- (inv);
+        \draw[greenarrow] (inv) -- (lean);
+
+       
+
+        
+        \coordinate (underlean) at ($(lean.south) + (0, -1.2)$);
+        \coordinate (underocaml) at ($(ocaml.south) + (0, -1.2)$);
+
+        
+        \draw[dashedarrow] (lean.south) -- (underlean) 
+            -- node[below, text=black, font=\small] {$F \circ F^{-1} =  F^{-1} \circ F = \mathrm{Id} $} 
+            (underocaml) -- (ocaml.south);
+
+        
+        \node[anchor=east, text=gray, font=\itshape] at ($(ocaml.south) + (-0.1, -0.6)$) {entrada: mapa $F$};
+        \node[anchor=west, text=gray, font=\itshape] at ($(lean.south) + (0.1, -0.6)$) {\checkmark certificado};
+
+    \end{tikzpicture}
+    }
+\end{frame}

@@ -1,0 +1,25 @@
+\begin{frame}[t]{O Problema da Invertibilidade}
+\small
+
+Seja $\KK$ um corpo. Uma \textbf{aplicação polinomial} é uma função
+\[
+F=(F_1,\ldots,F_n)\colon \KK^n \to \KK^n,
+\qquad \text{com } F_i \in \KK[x_1,\ldots,x_n].
+\]
+Isto é, cada coordenada $F_i$ é um polinômio da forma
+\[
+F_i=\sum_{\alpha\in \varLambda_i} a_\alpha x^\alpha,
+\quad \text{em que } x^\alpha=\prod_{k=1}^n x_k^{\alpha_k},
+\]
+com $\alpha=(\alpha_1,\ldots,\alpha_n)\in \mathbb{N}^n$, $a_\alpha\in \KK$, e $\varLambda_i\subset \mathbb{N}^n$ um conjunto finito.
+\pause
+  \begin{defbox}{Pergunta:}
+    Quando existe $G\colon\KK^n\to\KK^n$ \textbf{polinomial} tal que
+    \(
+      F \circ G = G \circ F = \Id_{\KK^n}\,?
+    \)
+    Qual a relação da inversa com o jacobiano $J_F$?
+  \end{defbox}
+
+
+\end{frame}

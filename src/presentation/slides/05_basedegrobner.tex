@@ -1,0 +1,28 @@
+\begin{frame}[t]{Bases de Gröbner}
+\vspace{0.6cm}
+O critério para invertibilidade de aplicações polinomiais baseia-se no cálculo de uma base de Gröbner reduzida do ideal associado à aplicação polinomial.
+\vspace{0.1cm}
+\begin{defbox}{Base de Gröbner}
+Para $I$ um ideal do anel $\kk[x_1,\ldots,x_n]$, dizemos que
+\[
+G=\{g_1,\ldots,g_s\}\subseteq I
+\]
+é uma \textbf{base de Gröbner} de \(I\) (com respeito à ordem monomial \(\preceq\)) se
+\[
+\langle \mathrm{ml}(g_1),\ldots,\mathrm{ml}(g_s)\rangle
+=
+\langle \mathrm{ml}(f)\; ;\; f\in I\rangle.\]
+
+Ainda, se, para todo \(i\neq j\), nenhum monômio de \(g_i\) for divisível por
+    \(\mathrm{ml}(g_j)\), a base de Gröbner é dita \textbf{reduzida}.
+\end{defbox}
+
+\end{frame}
+
+\begin{frame}{Uma definição equivalente}
+O teorema abaixo apresenta uma definição computacionalmente mais eficiente de base de Gröbner:
+\vspace{0.5cm}
+    \begin{teobox}{Critério de Buchberger}
+            Fixada uma ordem monomial $\preceq$ sobre $\mathbb{M}_n$, temos que um conjunto $G = \{g_1, \ldots,g_s\} \subset \kk[x_1 ,\ldots,x_n]$ é uma base de Gröbner para o ideal $I = \langle g_1, \ldots, g_s\rangle$ com respeito à $\preceq$ se, e somente se, para todo $1 \leq i < j \leq s$, o resto da pseudodivisão de todo S-polinômio pelos elementos de $G$ é nulo, em que: \[S(g_i,g_j)=\frac{\mathrm{MMC}(\mathrm{ml}(g_i),\mathrm{ml}(g_j))}{\mathrm{tl}(g_i)}g_i-\frac{\mathrm{MMC}(\mathrm{ml}(g_i),\mathrm{ml}(g_j))}{\mathrm{tl}(g_j)}g_j\] 
+    \end{teobox}
+\end{frame}
